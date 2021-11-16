@@ -8,22 +8,19 @@ function Box(props) {
   // const mesh = useRef()
 
   const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
 
-  const [ref, api] = useBox(() => ({ mass: 1, position: [0, 2, 0] }));
+  const [ref, api] = useBox(() => ({ mass: 1, position: [0, 0, 0] }));
 
   // useFrame((state, delta) => (mesh.current.rotation.x += 0.01))
 
   return (<mesh
-            position={[0, 2, 0]}
+            position={[0, 0, 0]}
             ref={ref}
             onClick={() => {
-              api.velocity.set(0, 2, 0);
+              api.velocity.set(0, 5, 0);
             }}
-            // scale={active ? 1.5 : 1}
-            // onClick={(event) => setActive(!active)}
-            // onPointerOver={(event) => setHover(true)}
-            // onPointerOut={(event) => setHover(false)}
+            onPointerOver={(event) => setHover(true)}
+            onPointerOut={(event) => setHover(false)}
           >
           <boxGeometry attach="geometry" />
           <meshLambertMaterial attach="material" color={hovered ? 'hotpink' : 'grey'} />
