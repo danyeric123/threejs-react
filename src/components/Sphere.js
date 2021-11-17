@@ -17,7 +17,7 @@ const Sphere = () => {
       onPointerOver={(event) => setHover(true)}
       onPointerOut={(event) => setHover(false)}
     >
-      <sphereGeometry attach="geometry" />
+      <sphereGeometry attach="geometry" args={[1,32,32]} />
       <meshLambertMaterial color={hovered ? 'hotpink':'white'} />
     </mesh>
   )

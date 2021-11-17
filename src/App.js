@@ -1,5 +1,5 @@
 import React, {useState, useRef,useEffect} from 'react';
-// import './App.css';
+import './App.css';
 import { Canvas, useFrame } from '@react-three/fiber';
 import {OrbitControls, Stars} from '@react-three/drei'
 import { Physics, useBox } from '@react-three/cannon';
@@ -18,10 +18,11 @@ function App() {
   const size = useWindowSize()
 
   return (
-    <Canvas camera={{ fov: 20, position: [-5, 4, 20]}} style={{ width: size.width, height: size.height}}>
+    <Canvas camera={{ fov: 20, position: [10, 1, 30]}} style={{ width: size.width, height: size.height}}>
       <OrbitControls />
+      <Stars />
       <ambientLight intensity={0.05} />
-      <pointLight position={[-10, 20, 10]} />
+      <pointLight position={[-10, 20, 10]} angle={0.3} />
       <Physics>
         {/* <Box /> */}
         <Sphere />
